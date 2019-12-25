@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="行走在路上">
+    <title>ECharts3 正式发布及简单试用说明 - 行走在路上</title>
+    <meta name="author" content="SuperZDev">
+    
+        <meta name="keywords" content="javascript,echarts">
+    
+    
+        <link rel="icon" href="http://www.superzdev.com/assets/images/jDrawer.jpg">
+    
+    
+    <meta name="description" content="更新时间：2016年5月2日12:18:16 2016年1月12日，ECharts3.0.0版本发布，本文档写于1月13日，具有时效性。2016年1月18日，ECharts3.0.1版本发布；2016年1月24日，ECharts3.0.2版本发布；2016年2月22日，ECharts3.1.1版本发布 ;官方提供NPM支持，fix bugs。2016年3月02日，ECharts3.1.2版本发布">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="ECharts3 正式发布及简单试用说明">
+<meta property="og:url" content="http://www.superzdev.com/2016/01/26/echarts-please-readme/index.html">
+<meta property="og:site_name" content="行走在路上">
+<meta property="og:description" content="更新时间：2016年5月2日12:18:16 2016年1月12日，ECharts3.0.0版本发布，本文档写于1月13日，具有时效性。2016年1月18日，ECharts3.0.1版本发布；2016年1月24日，ECharts3.0.2版本发布；2016年2月22日，ECharts3.1.1版本发布 ;官方提供NPM支持，fix bugs。2016年3月02日，ECharts3.1.2版本发布">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-01-26T05:47:39.000Z">
+<meta property="article:modified_time" content="2016-05-02T04:19:58.381Z">
+<meta property="article:author" content="SuperZDev">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="echarts">
+<meta name="twitter:card" content="summary">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://www.superzdev.com/assets/images/avatar.jpg"/>
+    
+    
+        <meta property="og:image" content="http://res.cloudinary.com/superzdev/image/upload/c_scale,h_236,w_750/v1454512421/echarts3_gimeww.png"/>
+        <meta class="swiftype" name="image" data-type="enum" content="http://res.cloudinary.com/superzdev/image/upload/c_scale,h_236,w_750/v1454512421/echarts3_gimeww.png" />
+    
+    
+    
+    <!--STYLES-->
+	<!--CSSHAKE css SuperZDev-->
+	
+<link rel="stylesheet" href="/assets/css/csshake-slow.min.css">
+<link rel="stylesheet" href="/.css" src="/.js">
+
+    
+<link rel="stylesheet" href="/assets/css/style-ejlztp1tasruqfvoz6xmgqng0anzae8ox7cqjj5yibieqgcmhe9fwxfae6zj.min.css">
+<link rel="stylesheet" href="/.css" src="/.js">
+
+    <!--STYLES END-->
+    
+    
+    <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?c6421adda3ab947b7a4717e91a93f0d7";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="3">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link shake-slow shake-constant shake-constant--hover" href="/%20">行走在路上</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/avatar.jpg"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="3">
+    
+        <div class="sidebar-profile">
+            <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/avatar.jpg"/>
+            </a>
+            <span class="sidebar-profile-name">SuperZDev</span>
+        </div>
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/%20"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="https://github.com/superzdev" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                    <span class="sidebar-button-desc">GitHub</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="http://mp.weixin.qq.com/s?__biz=MzAxOTgxOTU4NA==&mid=401907539&idx=1&sn=48d3caa18d1b848ce88e215b8df518e6#rd" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-wechat"></i>
+                    <span class="sidebar-button-desc">WeChat</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link " href="mailto:superzdev@gmail.com" target="_blank">
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-envelope-o"></i>
+                    <span class="sidebar-button-desc">Gmail</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="3"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-center">
+    
+        <h1 class="post-title" itemprop="headline">
+            ECharts3 正式发布及简单试用说明
+        </h1>
+    
+    <div class="post-meta">
+    <time itemprop="datePublished" content="Tue Jan 26 2016 13:47:39 GMT+0800">
+	
+		    Jan 26, 2016
+    	
+    </time>
+    
+        <span>in </span>
+        
+    <a class="category-link" href="/categories/ECharts/">ECharts</a>
+
+
+    
+</div>
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <blockquote>
+<p>更新时间：<strong>2016年5月2日12:18:16</strong></p>
+<p>2016年1月12日，<strong>ECharts3.0.0</strong>版本发布，本文档写于1月13日，具有时效性。<br>2016年1月18日，<strong>ECharts3.0.1</strong>版本发布；<br>2016年1月24日，<strong>ECharts3.0.2</strong>版本发布；<br>2016年2月22日，<strong>ECharts3.1.1</strong>版本发布 ;<br><strong>官方提供NPM支持，fix bugs。</strong><br>2016年3月02日，<strong>ECharts3.1.2</strong>版本发布；<br><strong>官方提供多Theme下载支持，fix bugs。</strong><br>2016年3月10日，<strong>ECharts3.1.3</strong>版本发布<br><strong>雷达图，webpack构建，fix bugs。</strong><br>2016年3月21日，<strong>ECharts3.1.4</strong>版本发布<br>2016年3月29日，<strong>ECharts3.1.5</strong>版本发布<br>2016年4月11日，<strong>ECharts3.1.6</strong>版本发布<br>2016年4月21日，<strong>ECharts3.1.7</strong>版本发布,详见<a href="http://echarts.baidu.com/changelog.html" target="_blank" rel="noopener">changelog</a><br><strong>fix bugs。</strong></p>
+<p>不过定期会进行修改，望周知。另：本人并非ECharts团队成员，写这篇文字纯粹为了支持社区。</p>
+<p>推荐阅读官方-&gt;<a href="http://efe.baidu.com/blog/whats-new-in-ec3/" target="_blank" rel="noopener">ECharts 3 带来了什么</a></p>
+</blockquote>
+<a id="more"></a>
+
+<h2 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h2><ul>
+<li>UI，主题</li>
+<li>拖拽重计算</li>
+<li>属性事件用法</li>
+<li>移动端</li>
+<li>BUG</li>
+<li>etc…</li>
+</ul>
+<p>整理成一句就是：3.x是大更新，目前尚不稳定，但肯定会更优秀。</p>
+<h2 id="提问的方式"><a href="#提问的方式" class="headerlink" title="提问的方式"></a>提问的方式</h2><ol>
+<li>是什么样的问题，想清楚怎么描述？</li>
+<li>是自己的问题，不会多了逗号吧？囧</li>
+<li>是ECharts的问题，console里有奇怪的log？</li>
+<li>提issue或者群里提问[注意最好提供完整的option，截图，并说明版本]</li>
+<li>多看文档多实践，多看文档多实践，多看文档多实践。重要的事情说三遍，也想三遍</li>
+<li>添加一个例子，<a href="https://github.com/ecomfe/echarts/issues/2475" target="_blank" rel="noopener">issues2475</a></li>
+</ol>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><p>ECharts是百度全端团队EFE做的免费开源的项目，历经几年，越来越好。<br>如果你希望用到最新的UI，最好的图表，且商业使用免费的话，那么选择BSD协议的ECharts就对了。<br>BUT，事实上，如果你的项目有很多限制，或者别的原因，正式项目可以先不用切换成最新的3.x版本，可以使用比较稳定的2.2.7版本，不过我也建议你试用一下，可以帮助社区改进。</p>
+<p>还有就是，初始版本bug多,但是不会再有breaking changes了，也请大家多多包涵，再说一下初期的版本切换原则。</p>
+<blockquote>
+<p>正式项目看上了新的图表，例如原来d3里有的【平行坐标系】新图表，支持gexf的关系图，或者新的冷酷UI，或者以往2.x时对移动端的不够好等等，可以切换。若暂时没有大的情况，先不要修改正式项目或者以往项目的2.x系。</p>
+<p>测试项目，抓紧上，发现的BUG多，回头发糖吃，哈哈哈。</p>
+</blockquote>
+<h3 id="TIPS"><a href="#TIPS" class="headerlink" title="TIPS"></a>TIPS</h3><h4 id="1-文档的读法"><a href="#1-文档的读法" class="headerlink" title="1:文档的读法"></a>1:文档的读法</h4><p>建议首先阅读一下<a href="http://echarts.baidu.com/echarts2/doc/doc.html" target="_blank" rel="noopener">参考手册</a>2.x版本，里面会介绍基本图表的一些知识，让你明白什么是坐标系，什么是序列数据，什么是配置项，每种图表是哪种样子？</p>
+<p>没有编程基础的童鞋也没关系，可以再阅读一下<a href="http://echarts.baidu.com/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts" target="_blank" rel="noopener">上手基本教程</a>，基本上在例子的基础上，修改一下属性，看一下实时效果是没有问题的。</p>
+<p>如果想修改一下特性，又不知道具体的属性是什么，这时候第一靠猜，第二是慢慢找了。不过基本上你对最外层的属性熟悉了，再去找也就自然而然了。</p>
+<p><strong>举个例子</strong></p>
+<p><em>问：如何想修改柱状图的颜色？</em> </p>
+<p>答：第一肯定想到<a href="http://echarts.baidu.com/option.html#series" target="_blank" rel="noopener">series</a>序列，bar图表里面的属性基本没有什么特殊性，与line，pie基本都是一样的，一共也只有22个属性，大致浏览一下也只需要1分钟时间，会定位到<a href="http://echarts.baidu.com/option.html#series-bar.itemStyle" target="_blank" rel="noopener">itemStyle</a>类似这样的样式属性上，接下来只需要细看文档就好了。</p>
+<p><em>问：如何刷新图表？怎么调用？</em></p>
+<p>答：事件API文档打开，一共4项。</p>
+<ul>
+<li>全局ECharts对象：<a href="http://echarts.baidu.com/api.html#echarts" target="_blank" rel="noopener">echarts</a></li>
+<li>通过 echarts.init 创建的实例：<a href="http://echarts.baidu.com/api.html#echartsInstance" target="_blank" rel="noopener">echartsInstance</a></li>
+<li>ECharts 中支持的图表行为，通过 dispatchAction 触发：<a href="http://echarts.baidu.com/api.html#action" target="_blank" rel="noopener">action</a></li>
+<li>ECharts 中的事件列表：<a href="http://echarts.baidu.com/api.html#events" target="_blank" rel="noopener">events</a></li>
+</ul>
+<p>因为2.x与3.x代码相差比较大，这里以最新的3.x为例。ECharts 3.x版本里所有的事件均是可以通过dispatchAction来触发，包括你读代码，也会发现这也是源代码调用不同组件事件的写法。</p>
+<p><em>etc….陆续会再写一篇，问题答疑类</em></p>
+<h4 id="2：待定"><a href="#2：待定" class="headerlink" title="2：待定"></a>2：待定</h4><h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><strong>ECharts3.x相关</strong></p>
+<ul>
+<li>3.x首页：<a href="http://echarts.baidu.com/" target="_blank" rel="noopener">http://echarts.baidu.com/</a></li>
+<li>事件API文档：<a href="http://echarts.baidu.com/api.html#echarts" target="_blank" rel="noopener">http://echarts.baidu.com/api.html#echarts</a></li>
+<li>配置项：<a href="http://echarts.baidu.com/option.html#title" target="_blank" rel="noopener">http://echarts.baidu.com/option.html#title</a></li>
+<li>Changelog:<a href="http://echarts.baidu.com/changelog.html" target="_blank" rel="noopener">http://echarts.baidu.com/changelog.html</a></li>
+<li>Github：<a href="https://github.com/ecomfe/echarts" target="_blank" rel="noopener">https://github.com/ecomfe/echarts</a></li>
+<li>Github Issues:<a href="https://github.com/ecomfe/echarts/issues" target="_blank" rel="noopener">https://github.com/ecomfe/echarts/issues</a></li>
+<li>etc…</li>
+</ul>
+<p><strong>ECharts2.x相关</strong></p>
+<pre><code>注：2.x版本官网有些以往存储的链接可能失效，是因为官网对结构进行了变更，不要认为官网挂掉了。</code></pre><ul>
+<li>2.x首页：<a href="http://echarts.baidu.com/echarts2/" target="_blank" rel="noopener">http://echarts.baidu.com/echarts2/</a></li>
+<li>配置项：<a href="http://echarts.baidu.com/echarts2/doc/option.html#title~" target="_blank" rel="noopener">http://echarts.baidu.com/echarts2/doc/option.html#title~</a></li>
+<li>参考手册：<a href="http://echarts.baidu.com/echarts2/doc/doc.html" target="_blank" rel="noopener">http://echarts.baidu.com/echarts2/doc/doc.html</a></li>
+<li>etc…</li>
+</ul>
+<p><strong>ECharts3.x离线版文档</strong></p>
+<ul>
+<li>官方离线版文档：<a href="https://github.com/SuperZDev/echarts-doc-offline" target="_blank" rel="noopener">https://github.com/SuperZDev/echarts-doc-offline</a></li>
+</ul>
+<p><strong>QQ交流群</strong></p>
+<p>QQ群：<strong>465958031</strong>,里面的群管理员全是百度的成员。</p>
+<p>需要注意的是：ECharts项目是这些成员所谓20%的时间做出来的，平时可能还会有别的开发任务。</p>
+<p>所以….你可能遇到以下几种情况：</p>
+<ul>
+<li>群里提的问题，没人回答</li>
+<li>ISSUES上提的，没人回答</li>
+<li>私聊，没人回答</li>
+<li>加好友，没人同意</li>
+<li>etc</li>
+</ul>
+<p>SO…<br>如果，你确认是BUG的话，请到issues上面提，开发人员100%会看，暂时没看的话有可能正在确认，也希望大家能把问题想清楚，描述清楚。因为童鞋们都是有工作任务的人，不可能一方面兼顾到所有人，一方面还能完成自己的工作任务，所以私聊，加好友大家还是不要想了。不过在群里@他们，他们看到肯定会有回复的。</p>
+
+            
+                
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">TAGGED IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/tags/echarts/" rel="tag">echarts</a> <a class="tag tag--primary tag--small t-link" href="/tags/javascript/" rel="tag">javascript</a>
+
+            </div>
+        
+        <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/04/how-to-use-hexo/"  data-tooltip="如何使用hexo？基础篇">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+            
+                <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a></noscript>
+</div>
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2019 SuperZDev. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="3">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/04/how-to-use-hexo/"  data-tooltip="如何使用hexo？基础篇">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-google-plus"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-facebook-official"></i>
+            </a>
+        </li>
+        <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-twitter"></i>
+            </a>
+        </li>
+        
+            <li class="post-action">
+                <a class="post-action-btn btn btn--default" href="#disqus_thread">
+                    <i class="fa fa-comment-o"></i>
+                </a>
+            </li>
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="3">
+    <ul class="share-options">
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+            </a>
+        </li>
+        <li class="share-option">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://www.superzdev.com/2016/01/26/echarts-please-readme/">
+                <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/avatar.jpg"/>
+        
+            <h4 id="about-card-name">SuperZDev</h4>
+        
+            <h5 id="about-card-bio"><p>The world is a fine place, and worth fighting for./爱的飞行记/CS专业.</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>.NET Software Engineer/Front-End Developer</p>
+
+            </h5>
+        
+        
+            <h5 id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                Beijing,China
+            </h5>
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('http://res.cloudinary.com/superzdev/image/upload/v1454692564/bb/superz.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+
+<script src="/assets/js/scrip-gfmrkxcl0qohe3cfdgxhzvc0yrceqta8i4iix0txvn8q4o2adlqd5n0jmkvt.min.js"></script>
+<script href="/.css" src="/.js"></script>
+
+<!--SCRIPTS END-->
+
+    
+        <script>
+             var disqus_config = function () {
+                 this.page.url = 'http://www.superzdev.com/2016/01/26/echarts-please-readme/';
+                 
+                    this.page.identifier = '2016/01/26/echarts-please-readme/';
+                                  
+             };
+            (function() {
+                var d = document, s = d.createElement('script');
+                var disqus_shortname = 'SuperZ';
+                s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        </script>
+    
+
+
+
+</html>
